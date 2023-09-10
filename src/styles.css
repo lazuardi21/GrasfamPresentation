@@ -1,0 +1,44 @@
+/* src/styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Your custom styles here (if needed) */
+/* styles.css (or styles.scss) */
+
+/* Common styles for both light and dark modes */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Light mode styles */
+.light-mode {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.light-mode .header {
+  background-color: #f0f0f0;
+  color: #333333;
+}
+
+.light-mode .button {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark-mode .header {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .button {
+  background-color: #28a745;
+  color: #ffffff;
+}
