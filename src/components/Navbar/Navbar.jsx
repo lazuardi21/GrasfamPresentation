@@ -215,7 +215,11 @@ function Navbar(props) {
                       exact
                       className={`text-lg ${linkSpacing}`}
                       activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={() => setActiveLink('Grasfam')}
+                      onClick={
+                        () => {
+                          setActiveLink('Grasfam');
+                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
+                      }}
                     >
                       {activeLink === 'Grasfam' ? (
                         <span className={`${isDarkMode ? 'text-green-500' : 'text-blue-500'}`}>
@@ -227,10 +231,11 @@ function Navbar(props) {
                     </NavLink>
 
                   </div>
-                  <div className={`row-span-1 sm:w-full text-lg p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? null : linkTextStyles}`}
+                  <div className={`row-span-1 sm:w-full text-lg p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles}`}
                     onClick={() => {
                       setServicesDropdownOpen(!servicesDropdownOpen); // Hide sidebar when a link is clicked
                     }}
+
                   >
                     <span
                       className={`cursor-pointer ${activeLink === 'Services' ?
@@ -285,7 +290,11 @@ function Navbar(props) {
                       to="/contact"
                       className={`text-lg ${linkTextStyles} ${linkSpacing}`}
                       activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={() => setActiveLink('Contact')}
+                      onClick={
+                        () => {
+                          setActiveLink('Contact');
+                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
+                      }}
                     >
                       {activeLink === 'Contact' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -302,7 +311,11 @@ function Navbar(props) {
                       to="/projects"
                       className={`text-lg ${linkTextStyles} ${linkSpacing}`}
                       activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={() => setActiveLink('Projects')}
+                      onClick={
+                        () => {
+                          setActiveLink('Projects');
+                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
+                      }}
                     >
                       {activeLink === 'Projects' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -318,7 +331,11 @@ function Navbar(props) {
                       to="/clients"
                       className={`text-lg ${linkTextStyles} ${linkSpacing}`}
                       activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={() => setActiveLink('Clients')}
+                      onClick={
+                        () => {
+                          setActiveLink('Clients');
+                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
+                      }}
                     >
                       {activeLink === 'Clients' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
