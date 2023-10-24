@@ -213,7 +213,7 @@ function Navbar(props) {
                     <NavLink
                       to="/"
                       exact
-                      className={`text-lg ${linkSpacing}`}
+                      className={`text-lg ${linkTextStyles} ${linkSpacing}`}
                       activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
                       onClick={
                         () => {
