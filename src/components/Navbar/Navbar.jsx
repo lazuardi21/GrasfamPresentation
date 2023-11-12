@@ -62,7 +62,7 @@ function Navbar(props) {
   };
 
   // Define CSS classes for navbar based on the current mode and screen width
-  const navbarBackgroundColor = isDarkMode ? 'bg-slate-800' : 'bg-slate-600 bg-opacity-99';
+  const navbarBackgroundColor = isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99';
   const navbarTextColor = isDarkMode ? 'text-black' : 'text-white'; // Inverted text color
   const navbarLayoutClasses = windowWidth < 1080 ? 'flex-col' : 'flex-row';
 
@@ -91,19 +91,22 @@ function Navbar(props) {
     <nav className={navbarClasses}>
       <div className="container mx-auto">
         <div>
-          <div className="left-4 pl-24 justify-between items-center">
-            <div className="items-center">
+          <div className="justify-between items-center">
+            <div className={windowWidth < 1080 ? "flex justify-center" : "items-center"}>
               {windowWidth < 1080 ? (
+                // <div className='flex justify-center'>
                 // Render the grid icon for mobile view
                 <FontAwesomeIcon
                   icon={faBars}
-                  className={`text-2xl mr-4 cursor-pointer ${gridIconColor}`}
+                  className={`text-2xl cursor-pointer ${gridIconColor} p-2`}
                   onClick={toggleSidebar}
                 />
+                // </div>
               ) : null}
               {sidebarVisible && windowWidth < 1080 ? (
                 // Render the links in the sidebar for mobile view when sidebarVisible is true
-                <div className={isDarkMode ? "absolute top-16 left-0 w-full bg-slate-700 z-10 text-left" : "absolute top-16 left-0 w-full bg-slate-500 z-10"}>
+                <div className={isDarkMode ? "absolute left-0 w-full bg-slate-700 z-10 text-center" : "absolute top-16 left-0 w-full bg-slate-500 z-10"}
+                  style={{ top: '2.5rem' }}>
                   <div > {/* Add text-left className */}
                     <NavLink
                       to="/"
@@ -208,10 +211,10 @@ function Navbar(props) {
                 </div>
               ) : windowWidth > 1080 ? (
                 // Render the links for desktop view or when sidebarVisible is false
-                <div className="grid grid-cols-[7%_8%_7%_7%_7%_10%_10%_14%] gap-2 items-center">
+                <div className="grid grid-cols-[7%_8%_7%_7%_7%_10%_10%_14%] gap-2 items-center left-4 pl-24">
                   <div
-                    className={`cursor-pointer  row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
-                    onClick={() => handleLinkClick('/')}
+                    className={`cursor-pointer  row-span-1 sm:w-full p-2 ${linkTextStyles}`}
+                    onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); }}
                   >
                     {activeLink === 'Grasfam' ? (
                       <span className={`${isDarkMode ? 'text-green-500' : 'text-blue-500'}`}>Grasfam</span>
@@ -220,18 +223,21 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles
+                    className={`cursor-pointer p-2 ${servicesDropdownOpen ? isDarkMode ? 'text-white' : 'text-black' : linkTextStyles
                       }`}
-                    onClick={() => {
-                      setActiveLink('Services');
-                      setServicesDropdownOpen(!servicesDropdownOpen)
-                    }}
+                    // onClick={() => {
+                    //   setActiveLink('Services');
+                    //   setServicesDropdownOpen(!servicesDropdownOpen)
+                    // }}
+                    onMouseEnter={() => { setServicesDropdownOpen(true); }}
+                    onMouseLeave={() => setServicesDropdownOpen(false)} // Close dropdown on hover leave
+
+                  // onMouseOver={setServicesDropdownOpen(!servicesDropdownOpen)}
                   >
                     <span
-                      className={`row-span-1 sm:w-full ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles
-                        } ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
-                      // className={`cursor-pointer ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
-                      // onClick={() => handleLinkClick('/services')}
+                      className={`row-span-1 sm:w-full ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
+                    // className={`cursor-pointer ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
+                    // onClick={() => handleLinkClick('/services')}
                     >
                       Services
                       {servicesDropdownOpen ? (
@@ -240,23 +246,23 @@ function Navbar(props) {
                         <FontAwesomeIcon icon={faAngleUp} className="ml-2" />
                       )}
                     </span>
-                    {activeLink === 'Services' && servicesDropdownOpen && (
-                      <div className="absolute left-23 mt-6 w-30 bg-white shadow-lg rounded">
+                    {servicesDropdownOpen && (
+                      <div className={`absolute left-23 w-30 ${isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99'}  shadow-lg rounded`}>
                         <div
-                          className="block px-4 py-2 text-black hover:bg-gray-200 rounded"
-                          onClick={() => handleLinkClick('/services/ai')}
+                          className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
+                          onClick={() => { handleLinkClick('/services/ai'); setActiveLink('Services'); }}
                         >
                           AI
                         </div>
                         <div
-                          className="block px-4 py-2 text-black hover:bg-gray-200"
-                          onClick={() => handleLinkClick('/services/tools')}
+                          className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
+                          onClick={() => { handleLinkClick('/services/tools'); setActiveLink('Services'); }}
                         >
                           Tools
                         </div>
                         <div
-                          className="block px-4 py-2 text-black hover:bg-gray-200 rounded"
-                          onClick={() => handleLinkClick('/services/education')}
+                          className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
+                          onClick={() => { handleLinkClick('/services/education'); setActiveLink('Services'); }}
                         >
                           Education
                         </div>
@@ -264,8 +270,8 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
-                    onClick={() => handleLinkClick('/contact')}
+                    className={`cursor-pointer row-span-1 sm:w-full p-2  ${linkTextStyles}`}
+                    onClick={() => { handleLinkClick('/contact'); setActiveLink('Contact'); }}
                   >
                     {activeLink === 'Contact' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>Contact</span>
@@ -274,8 +280,8 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
-                    onClick={() => handleLinkClick('/projects')}
+                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${linkTextStyles}`}
+                    onClick={() => { handleLinkClick('/projects'); setActiveLink('Projects'); }}
                   >
                     {activeLink === 'Projects' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>Projects</span>
@@ -284,8 +290,8 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
-                    onClick={() => handleLinkClick('/clients')}
+                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${linkTextStyles}`}
+                    onClick={() => { handleLinkClick('/clients'); setActiveLink('Clients'); }}
                   >
                     {activeLink === 'Clients' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>Clients</span>
@@ -297,17 +303,28 @@ function Navbar(props) {
 
               ) : null}
             </div>
-            <div className="fixed top-0 right-0 p-1">
-              <button className={buttonClasses} onClick={toggleMode}>
-                {isDarkMode ? (
-                  <>
-                    <FontAwesomeIcon icon={faLightbulb} className="mr-1" /> Dark Mode
-                  </>
+            <div className="fixed top-0 right-0" style={{ paddingTop: windowWidth < 1080 ? '0.8%' : '0.2%' }}>
+              <button className={`${buttonClasses} ${windowWidth < 1080 ? 'mr-1' : 'mr-3'}`} onClick={toggleMode}>
+                {windowWidth < 1080 ? (
+                  isDarkMode ? (
+                    <>
+                      <FontAwesomeIcon icon={faLightbulb} /></>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faLightbulb} /></>
+                  )
                 ) : (
-                  <>
-                    <FontAwesomeIcon icon={faLightbulb} className="mr-1" /> Light Mode
-                  </>
+                  isDarkMode ? (
+                    <>
+                      <FontAwesomeIcon icon={faLightbulb} className="mr-1" /> Dark Mode
+                    </>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faLightbulb} className="mr-1" /> Light Mode
+                    </>
+                  )
                 )}
+
               </button>
             </div>
           </div>
