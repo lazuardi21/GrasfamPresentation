@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faBars } from '@fortawesome/free-solid-svg-icons';
 import { toggleDarkMode } from '../../store/Actions'; // Import the toggleDarkMode action
@@ -18,8 +18,15 @@ const mapDispatchToProps = {
 
 function Navbar(props) {
 
+  const navigation = useNavigate();
   // State to track the current mode (true for dark mode, false for light mode)
   // const [isDarkMode, setIsDarkMode] = useState(false); // Start with light mode as the initial state
+
+  const handleLinkClick = (path) => {
+    setActiveLink(path);
+    setServicesDropdownOpen(false);
+    navigation(path);
+  };
 
   const { isDarkMode, toggleDarkMode } = props;
 
@@ -35,13 +42,6 @@ function Navbar(props) {
 
   // State to track the screen width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  // Function to toggle between dark mode and light mode
-  // const toggleMode = () => {
-  //   setIsDarkMode(!isDarkMode);
-  //   // You can save the user's preference in local storage or cookies for persistence
-  //   // Example: localStorage.setItem('darkMode', !isDarkMode);
-  // };
 
   // Function to update window width state
   const updateWindowWidth = () => {
@@ -209,144 +209,87 @@ function Navbar(props) {
               ) : windowWidth > 1080 ? (
                 // Render the links for desktop view or when sidebarVisible is false
                 <div className="grid grid-cols-[7%_8%_7%_7%_7%_10%_10%_14%] gap-2 items-center">
-                  <div className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}>
-                    <NavLink
-                      to="/"
-                      exact
-                      className={`text-lg ${linkTextStyles} ${linkSpacing}`}
-                      activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={
-                        () => {
-                          setActiveLink('Grasfam');
-                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
-                      }}
-                    >
-                      {activeLink === 'Grasfam' ? (
-                        <span className={`${isDarkMode ? 'text-green-500' : 'text-blue-500'}`}>
-                          Grasfam
-                        </span>
-                      ) : (
-                        'Grasfam'
-                      )}
-                    </NavLink>
-
+                  <div
+                    className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    onClick={() => handleLinkClick('/')}
+                  >
+                    {activeLink === 'Grasfam' ? (
+                      <span className={`${isDarkMode ? 'text-green-500' : 'text-blue-500'}`}>Grasfam</span>
+                    ) : (
+                      'Grasfam'
+                    )}
                   </div>
-                  <div className={`row-span-1 sm:w-full text-lg p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles}`}
-                    onClick={() => {
-                      setServicesDropdownOpen(!servicesDropdownOpen); // Hide sidebar when a link is clicked
-                    }}
-
+                  <div
+                    className={`row-span-1 sm:w-full text-lg p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles
+                      }`}
+                    onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                   >
                     <span
-                      className={`cursor-pointer ${activeLink === 'Services' ?
-                        (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
-                      onClick={() => {
-                        setActiveLink('Services');
-                        // setSidebarVisible(false); // Hide sidebar when a link is clicked
-                        // setServicesDropdownOpen(!servicesDropdownOpen); // Toggle the dropdown state
-                      }}
+                      className={`cursor-pointer ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
+                      onClick={() => handleLinkClick('/services')}
                     >
                       Services
                       {servicesDropdownOpen ? (
-                        <FontAwesomeIcon icon={faAngleDown} className="ml-2" /> // Up arrow icon when open
+                        <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
                       ) : (
-                        <FontAwesomeIcon icon={faAngleUp} className="ml-2" /> // Down arrow icon when closed
+                        <FontAwesomeIcon icon={faAngleUp} className="ml-2" />
                       )}
                     </span>
                     {activeLink === 'Services' && servicesDropdownOpen && (
                       <div className="absolute left-23 mt-6 w-30 bg-white shadow-lg rounded">
-                        <NavLink
-                          to="/services/ai"
+                        <div
                           className="block px-4 py-2 text-black hover:bg-gray-200 rounded"
-                          onClick={() => {
-                            setServicesDropdownOpen(!servicesDropdownOpen); // Hide sidebar when a link is clicked
-                          }}
+                          onClick={() => handleLinkClick('/services/ai')}
                         >
                           AI
-                        </NavLink>
-                        <NavLink
-                          to="/services/tools"
+                        </div>
+                        <div
                           className="block px-4 py-2 text-black hover:bg-gray-200"
-                          onClick={() => {
-                            setServicesDropdownOpen(!servicesDropdownOpen); // Hide sidebar when a link is clicked
-                          }}
+                          onClick={() => handleLinkClick('/services/tools')}
                         >
                           Tools
-                        </NavLink>
-                        <NavLink
-                          to="/services/education"
+                        </div>
+                        <div
                           className="block px-4 py-2 text-black hover:bg-gray-200 rounded"
-                          onClick={() => {
-                            setServicesDropdownOpen(!servicesDropdownOpen); // Hide sidebar when a link is clicked
-                          }}
+                          onClick={() => handleLinkClick('/services/education')}
                         >
                           Education
-                        </NavLink>
+                        </div>
                       </div>
                     )}
                   </div>
-                  <div className={`row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}>
-                    <NavLink
-                      to="/contact"
-                      className={`text-lg ${linkTextStyles} ${linkSpacing}`}
-                      activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={
-                        () => {
-                          setActiveLink('Contact');
-                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
-                      }}
-                    >
-                      {activeLink === 'Contact' ? (
-                        <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
-                          Contact
-                        </span>
-                      ) : (
-                        'Contact'
-                      )}
-                    </NavLink>
+                  <div
+                    className={`row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    onClick={() => handleLinkClick('/contact')}
+                  >
+                    {activeLink === 'Contact' ? (
+                      <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>Contact</span>
+                    ) : (
+                      'Contact'
+                    )}
                   </div>
-                  {/* Add links to Projects and Clients */}
-                  <div className={`row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}>
-                    <NavLink
-                      to="/projects"
-                      className={`text-lg ${linkTextStyles} ${linkSpacing}`}
-                      activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={
-                        () => {
-                          setActiveLink('Projects');
-                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
-                      }}
-                    >
-                      {activeLink === 'Projects' ? (
-                        <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
-                          Projects
-                        </span>
-                      ) : (
-                        'Projects'
-                      )}
-                    </NavLink>
+                  <div
+                    className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    onClick={() => handleLinkClick('/projects')}
+                  >
+                    {activeLink === 'Projects' ? (
+                      <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>Projects</span>
+                    ) : (
+                      'Projects'
+                    )}
                   </div>
-                  <div className={`row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}>
-                    <NavLink
-                      to="/clients"
-                      className={`text-lg ${linkTextStyles} ${linkSpacing}`}
-                      activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={
-                        () => {
-                          setActiveLink('Clients');
-                          servicesDropdownOpen ? setServicesDropdownOpen(!servicesDropdownOpen) : null; // Hide Dropdown when a link is clicked
-                      }}
-                    >
-                      {activeLink === 'Clients' ? (
-                        <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
-                          Clients
-                        </span>
-                      ) : (
-                        'Clients'
-                      )}
-                    </NavLink>
+                  <div
+                    className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    onClick={() => handleLinkClick('/clients')}
+                  >
+                    {activeLink === 'Clients' ? (
+                      <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>Clients</span>
+                    ) : (
+                      'Clients'
+                    )}
                   </div>
                 </div>
+
               ) : null}
             </div>
             <div class="fixed top-0 right-0 p-1">
