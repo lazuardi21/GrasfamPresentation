@@ -66,17 +66,17 @@ function Navbar(props) {
   const navbarTextColor = isDarkMode ? 'text-black' : 'text-white'; // Inverted text color
   const navbarLayoutClasses = windowWidth < 1080 ? 'flex-col' : 'flex-row';
 
-  // Conditionally apply a CSS class to the grid icon for color change in light mode
+  // Conditionally apply a CSS className to the grid icon for color change in light mode
   const gridIconColor = isDarkMode ? 'text-white' : 'text-black';
 
   const navbarClasses = `fixed w-full top-0 left-0 ${navbarBackgroundColor} ${navbarTextColor} flex justify-between items-center ${navbarLayoutClasses}`;
   const buttonClasses = `ml-2 px-3 py-1 rounded ${isDarkMode ? 'bg-green-500' : 'bg-yellow-400'
     } hover:bg-${isDarkMode ? 'green-600' : 'yellow-500'}`;
 
-  // Custom CSS class for link spacing
+  // Custom CSS className for link spacing
   const linkSpacing = 'mr-0';
 
-  // Custom CSS class for link text styles
+  // Custom CSS className for link text styles
   const linkTextStyles = `text-${isDarkMode ? 'white' : 'black'} hover:underline`;
 
   // Define CSS classes for active links with different background colors based on the mode
@@ -104,7 +104,7 @@ function Navbar(props) {
               {sidebarVisible && windowWidth < 1080 ? (
                 // Render the links in the sidebar for mobile view when sidebarVisible is true
                 <div className={isDarkMode ? "absolute top-16 left-0 w-full bg-slate-700 z-10 text-left" : "absolute top-16 left-0 w-full bg-slate-500 z-10"}>
-                  <div > {/* Add text-left class */}
+                  <div > {/* Add text-left className */}
                     <NavLink
                       to="/"
                       exact
@@ -145,7 +145,7 @@ function Navbar(props) {
                       )}
                     </NavLink>
                   </div>
-                  <div> {/* Add text-left class */}
+                  <div> {/* Add text-left className */}
                     <NavLink
                       to="/contact"
                       className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
@@ -164,7 +164,7 @@ function Navbar(props) {
                       )}
                     </NavLink>
                   </div>
-                  <div> {/* Add text-left class */}
+                  <div> {/* Add text-left className */}
                     {/* Add links to Projects and Clients */}
                     <NavLink
                       to="/projects"
@@ -185,7 +185,7 @@ function Navbar(props) {
                       )}
                     </NavLink>
                   </div>
-                  <div> {/* Add text-left class */}
+                  <div> {/* Add text-left className */}
                     <NavLink
                       to="/clients"
                       className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
@@ -210,7 +210,7 @@ function Navbar(props) {
                 // Render the links for desktop view or when sidebarVisible is false
                 <div className="grid grid-cols-[7%_8%_7%_7%_7%_10%_10%_14%] gap-2 items-center">
                   <div
-                    className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    className={`cursor-pointer  row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
                     onClick={() => handleLinkClick('/')}
                   >
                     {activeLink === 'Grasfam' ? (
@@ -220,13 +220,18 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`row-span-1 sm:w-full text-lg p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles
+                    className={`cursor-pointer p-2 ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles
                       }`}
-                    onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                    onClick={() => {
+                      setActiveLink('Services');
+                      setServicesDropdownOpen(!servicesDropdownOpen)
+                    }}
                   >
                     <span
-                      className={`cursor-pointer ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
-                      onClick={() => handleLinkClick('/services')}
+                      className={`row-span-1 sm:w-full ${isDarkMode ? null : 'bg-white'} ${servicesDropdownOpen ? 'text-black' : linkTextStyles
+                        } ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
+                      // className={`cursor-pointer ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
+                      // onClick={() => handleLinkClick('/services')}
                     >
                       Services
                       {servicesDropdownOpen ? (
@@ -259,7 +264,7 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    className={`cursor-pointer row-span-1 sm:w-full p-2  ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
                     onClick={() => handleLinkClick('/contact')}
                   >
                     {activeLink === 'Contact' ? (
@@ -269,7 +274,7 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
                     onClick={() => handleLinkClick('/projects')}
                   >
                     {activeLink === 'Projects' ? (
@@ -279,7 +284,7 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
+                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${isDarkMode ? null : 'bg-white'} ${linkTextStyles}`}
                     onClick={() => handleLinkClick('/clients')}
                   >
                     {activeLink === 'Clients' ? (
@@ -292,7 +297,7 @@ function Navbar(props) {
 
               ) : null}
             </div>
-            <div class="fixed top-0 right-0 p-1">
+            <div className="fixed top-0 right-0 p-1">
               <button className={buttonClasses} onClick={toggleMode}>
                 {isDarkMode ? (
                   <>
