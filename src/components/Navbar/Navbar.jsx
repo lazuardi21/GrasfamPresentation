@@ -111,11 +111,10 @@ function Navbar(props) {
               {sidebarVisible && windowWidth < 1080 ? (
                 // Render the links in the sidebar for mobile view when sidebarVisible is true
                 <div className={isDarkMode ? "absolute left-0 w-full bg-slate-700 z-10 text-center" : "absolute top-16 left-0 w-full bg-slate-500 z-10"}
-                  style={{ top: '2.5rem' }}>
+                  style={{ top: '2.5rem' }} >
                   <div 
                   className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
                   onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); setSidebarVisible(false);}}
-
                   >
                     {activeLink === 'Grasfam' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -139,105 +138,64 @@ function Navbar(props) {
                       )}
                       {showDropdown && (
                         <div className="ml-4">
-                          <NavLink
-                            to="/services/ai"
-                            className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'
-                              }`}
-                            //activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                            onClick={() => {
-                              setActiveLink('Services');
-                              setSidebarVisible(false);
-                            }}
+                          <div
+                          className={`text-2xl ${linkTextStyles} rounded ${isDarkMode ? null : 'bg-brown-200'}`}
+                          onClick={() => { handleLinkClick('/services/ai'); setActiveLink('Services'); setSidebarVisible(false);}}
                           >
                             AI
-                          </NavLink>
-                          <NavLink
-                            to="/services/tools"
-                            className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'
-                              }`}
-                            //activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                            onClick={() => {
-                              setActiveLink('Services');
-                              setSidebarVisible(false);
-                            }}
+                          </div>
+                          <div
+                          className={`text-2xl ${linkTextStyles} rounded ${isDarkMode ? null : 'bg-brown-200'}`}
+                          onClick={() => { handleLinkClick('/services/tools'); setActiveLink('Services'); setSidebarVisible(false);}}
                           >
                             Tools
-                          </NavLink>
-                          <NavLink
-                            to="/services/education"
-                            className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'
-                              }`}
-                            //activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                            onClick={() => {
-                              setActiveLink('Services');
-                              setSidebarVisible(false);
-                            }}
+                          </div>
+                          <div
+                          className={`text-2xl ${linkTextStyles} rounded ${isDarkMode ? null : 'bg-brown-200'}`}
+                          onClick={() => { handleLinkClick('/services/education'); setActiveLink('Services'); setSidebarVisible(false);}}
                           >
                             Education
-                          </NavLink>
+                          </div>
                         </div>
                       )}
                     </div>
                   </div>
-                  <div> {/* Add text-left className */}
-                    <NavLink
-                      to="/contact"
-                      className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                      //activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={() => {
-                        setActiveLink('Contact');
-                        setSidebarVisible(false); // Hide sidebar when a link is clicked
-                      }}
-                    >
-                      {activeLink === 'Contact' ? (
+                  <div
+                  className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
+                  onClick={() => { handleLinkClick('/contact'); setActiveLink('Contact'); setSidebarVisible(false);}}
+                  >
+                    {activeLink === 'Contact' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
                           Contact
                         </span>
                       ) : (
                         'Contact'
                       )}
-                    </NavLink>
+                    
                   </div>
-                  <div> {/* Add text-left className */}
-                    {/* Add links to Projects and Clients */}
-                    <NavLink
-                      to="/projects"
-                      className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                      //activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={
-                        () => {
-                          setActiveLink('Projects')
-                          setSidebarVisible(false); // Hide sidebar when a link is clicked
-                        }}
-                    >
-                      {activeLink === 'Projects' ? (
+                  <div
+                   className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
+                   onClick={() => { handleLinkClick('/projects'); setActiveLink('Projects'); setSidebarVisible(false);}}
+                  > 
+                     {activeLink === 'Projects' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
                           Projects
                         </span>
                       ) : (
                         'Projects'
                       )}
-                    </NavLink>
                   </div>
-                  <div> {/* Add text-left className */}
-                    <NavLink
-                      to="/clients"
-                      className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                      // activeClassName={isDarkMode ? activeLinkDarkMode : activeLinkLightMode}
-                      onClick={
-                        () => {
-                          setActiveLink('Clients')
-                          setSidebarVisible(false); // Hide sidebar when a link is clicked
-                        }}
-                    >
-                      {activeLink === 'Clients' ? (
+                  <div
+                  className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
+                  onClick={() => { handleLinkClick('/clients'); setActiveLink('Clients'); setSidebarVisible(false);}}
+                  >
+                    {activeLink === 'Clients' ? (
                         <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
                           Clients
                         </span>
                       ) : (
                         'Clients'
                       )}
-                    </NavLink>
                   </div>
                 </div>
               ) : windowWidth > 1080 ? (
