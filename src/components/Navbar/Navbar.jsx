@@ -130,7 +130,13 @@ function Navbar(props) {
                       className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'
                         } cursor-pointer`}
                     >
-                     Services
+                     {activeLink === 'Services' ? (
+                        <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
+                          Services
+                        </span>
+                      ) : (
+                        'Services'
+                      )}
                       {showDropdown ? (
                         <FontAwesomeIcon icon={faAngleUp} className="ml-2" />
                       ) : (
