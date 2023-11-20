@@ -94,7 +94,7 @@ function Navbar(props) {
 
   return (
     <nav className={navbarClasses}>
-      <div className="container mx-auto">
+      <div className="container mx-auto ml-0 mr-0">
         <div>
           <div className="justify-between items-center">
             <div className={windowWidth < 1080 ? "flex justify-center" : "items-center"}>
@@ -206,7 +206,7 @@ function Navbar(props) {
                 </div>
               ) : windowWidth > 1080 ? (
                 // Render the links for desktop view or when sidebarVisible is false
-                <div className="grid grid-cols-[7%_8%_7%_7%_7%_10%_10%_14%] gap-2 items-center left-4 pl-24">
+                <div className="grid grid-cols-[8%_11%_8%_8%_8%] gap-1 items-center left-4 pl-24">
                   <div
                     className={`cursor-pointer  row-span-1 sm:w-full p-2 ${linkTextStyles}`}
                     onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); }}
