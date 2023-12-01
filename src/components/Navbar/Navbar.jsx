@@ -67,7 +67,7 @@ function Navbar(props) {
   };
 
   // Define CSS classes for navbar based on the current mode and screen width
-  const navbarBackgroundColor = isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99';
+  const navbarBackgroundColor = isDarkMode ? 'bg-slate-800' : 'bg-slate-400';
   const navbarTextColor = isDarkMode ? 'text-black' : 'text-white'; // Inverted text color
   const navbarLayoutClasses = windowWidth < 1080 ? 'flex-col' : 'flex-row';
 
