@@ -113,7 +113,7 @@ function Navbar(props) {
   const toggleBlurBackground = () => {
     // Also close the sidebar when the blur background is clicked
     // if(sidebarVisible){
-      setBlurBackgroundVisible(!blurBackgroundVisible);
+    setBlurBackgroundVisible(!blurBackgroundVisible);
     // }
     if (!blurBackgroundVisible) {
       toggleSidebar();
@@ -156,7 +156,7 @@ function Navbar(props) {
                   style={{ top: '2.5rem' }} >
                   <div
                     className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                    onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); setSidebarVisible(false); toggleBlurBackground()}}
+                    onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); setSidebarVisible(false); toggleBlurBackground() }}
                   >
                     {activeLink === 'Grasfam' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -182,19 +182,19 @@ function Navbar(props) {
                         <div className="ml-4">
                           <div
                             className={`text-2xl ${linkTextStyles} rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                            onClick={() => { handleLinkClick('/services/ai'); setActiveLink('Services'); setSidebarVisible(false); toggleBlurBackground()}}
+                            onClick={() => { handleLinkClick('/services/ai'); setActiveLink('Services'); setSidebarVisible(false); toggleBlurBackground() }}
                           >
                             AI
                           </div>
                           <div
                             className={`text-2xl ${linkTextStyles} rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                            onClick={() => { handleLinkClick('/services/tools'); setActiveLink('Services'); setSidebarVisible(false); toggleBlurBackground()}}
+                            onClick={() => { handleLinkClick('/services/tools'); setActiveLink('Services'); setSidebarVisible(false); toggleBlurBackground() }}
                           >
                             Tools
                           </div>
                           <div
                             className={`text-2xl ${linkTextStyles} rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                            onClick={() => { handleLinkClick('/services/education'); setActiveLink('Services'); setSidebarVisible(false); toggleBlurBackground()}}
+                            onClick={() => { handleLinkClick('/services/education'); setActiveLink('Services'); setSidebarVisible(false); toggleBlurBackground() }}
                           >
                             Education
                           </div>
@@ -204,7 +204,7 @@ function Navbar(props) {
                   </div>
                   <div
                     className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                    onClick={() => { handleLinkClick('/contact'); setActiveLink('Contact'); setSidebarVisible(false); toggleBlurBackground()}}
+                    onClick={() => { handleLinkClick('/contact'); setActiveLink('Contact'); setSidebarVisible(false); toggleBlurBackground() }}
                   >
                     {activeLink === 'Contact' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -217,7 +217,7 @@ function Navbar(props) {
                   </div>
                   <div
                     className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                    onClick={() => { handleLinkClick('/projects'); setActiveLink('Projects'); setSidebarVisible(false); toggleBlurBackground()}}
+                    onClick={() => { handleLinkClick('/projects'); setActiveLink('Projects'); setSidebarVisible(false); toggleBlurBackground() }}
                   >
                     {activeLink === 'Projects' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -229,7 +229,7 @@ function Navbar(props) {
                   </div>
                   <div
                     className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                    onClick={() => { handleLinkClick('/clients'); setActiveLink('Clients'); setSidebarVisible(false); toggleBlurBackground()}}
+                    onClick={() => { handleLinkClick('/clients'); setActiveLink('Clients'); setSidebarVisible(false); toggleBlurBackground() }}
                   >
                     {activeLink === 'Clients' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
@@ -242,9 +242,9 @@ function Navbar(props) {
                 </div>
               ) : windowWidth > 1080 ? (
                 // Render the links for desktop view or when sidebarVisible is false
-                <div className="grid grid-cols-[7%_12%_7%_7%_7%_10%] items-center left-4 pl-24">
+                <div className="grid grid-cols-[8%_10%_7%_7%_7%] items-center left-4 pl-24">
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${linkTextStyles}`}
+                    className={`cursor-pointer sm:w-full p-2 ${linkTextStyles}`}
                     onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); }}
                   >
                     {activeLink === 'Grasfam' ? (
@@ -254,7 +254,7 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer p-2 ${servicesDropdownOpen ? isDarkMode ? 'text-white' : 'text-black' : linkTextStyles
+                    className={`cursor-pointer p-0 ${servicesDropdownOpen ? isDarkMode ? 'text-white' : 'text-black' : linkTextStyles
                       }`}
                     // onClick={() => {
                     //   setActiveLink('Services');
@@ -265,43 +265,44 @@ function Navbar(props) {
 
                   // onMouseOver={setServicesDropdownOpen(!servicesDropdownOpen)}
                   >
-                    <span
-                      className={`row-span-1 sm:w-full ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
-                    // className={`cursor-pointer ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
-                    // onClick={() => handleLinkClick('/services')}
-                    >
-                      Services
-                      {servicesDropdownOpen ? (
-                        <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
-                      ) : (
-                        <FontAwesomeIcon icon={faAngleUp} className="ml-2" />
+                    <div className="relative">
+                      <span
+                        className={`sm:w-full relative ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}                     
+                      >
+                        Services
+                        {servicesDropdownOpen ? (
+                          <FontAwesomeIcon icon={faAngleDown} className="relative top-0.5 ml-2" />
+                        ) : (
+                          <FontAwesomeIcon icon={faAngleUp} className="relative top-0.5 ml-2" />
+                        )}
+                      </span>
+                      {servicesDropdownOpen && (
+                        <div className={`absolute left-23 w-30 ${isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99'}  shadow-lg rounded`}>
+
+                          <div
+                            className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
+                            onClick={() => { handleLinkClick('/services/ai'); setActiveLink('Services'); }}
+                          >
+                            AI
+                          </div>
+                          <div
+                            className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
+                            onClick={() => { handleLinkClick('/services/tools'); setActiveLink('Services'); }}
+                          >
+                            Tools
+                          </div>
+                          <div
+                            className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
+                            onClick={() => { handleLinkClick('/services/education'); setActiveLink('Services'); }}
+                          >
+                            Education
+                          </div>
+                        </div>
                       )}
-                    </span>
-                    {servicesDropdownOpen && (
-                      <div className={`absolute left-23 w-30 ${isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99'}  shadow-lg rounded`}>
-                        <div
-                          className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
-                          onClick={() => { handleLinkClick('/services/ai'); setActiveLink('Services'); }}
-                        >
-                          AI
-                        </div>
-                        <div
-                          className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
-                          onClick={() => { handleLinkClick('/services/tools'); setActiveLink('Services'); }}
-                        >
-                          Tools
-                        </div>
-                        <div
-                          className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
-                          onClick={() => { handleLinkClick('/services/education'); setActiveLink('Services'); }}
-                        >
-                          Education
-                        </div>
-                      </div>
-                    )}
+                    </div>
                   </div>
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2  ${linkTextStyles}`}
+                    className={`cursor-pointer sm:w-full p-2  ${linkTextStyles}`}
                     onClick={() => { handleLinkClick('/contact'); setActiveLink('Contact'); }}
                   >
                     {activeLink === 'Contact' ? (
@@ -311,7 +312,7 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${linkTextStyles}`}
+                    className={`cursor-pointer sm:w-full p-2 ${linkTextStyles}`}
                     onClick={() => { handleLinkClick('/projects'); setActiveLink('Projects'); }}
                   >
                     {activeLink === 'Projects' ? (
@@ -321,7 +322,7 @@ function Navbar(props) {
                     )}
                   </div>
                   <div
-                    className={`cursor-pointer row-span-1 sm:w-full p-2 ${linkTextStyles}`}
+                    className={`cursor-pointer sm:w-full p-2 ${linkTextStyles}`}
                     onClick={() => { handleLinkClick('/clients'); setActiveLink('Clients'); }}
                   >
                     {activeLink === 'Clients' ? (
