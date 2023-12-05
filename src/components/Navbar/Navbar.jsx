@@ -168,16 +168,17 @@ function Navbar(props) {
                   </div>
                   <div>
                     <div
-                      onClick={toggleDropdown}
                       className={`text-2xl text-${isDarkMode ? 'white' : 'black'} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'
                         } cursor-pointer`}
                     >
-                      Services
-                      {showDropdown ? (
-                        <FontAwesomeIcon icon={faAngleUp} className="ml-2" />
-                      ) : (
-                        <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
-                      )}
+                      <div onClick={toggleDropdown}>
+                        Services
+                        {showDropdown ? (
+                          <FontAwesomeIcon icon={faAngleUp} className="ml-2" />
+                        ) : (
+                          <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
+                        )}
+                      </div>
                       {showDropdown && (
                         <div className="ml-4">
                           <div
@@ -267,7 +268,7 @@ function Navbar(props) {
                   >
                     <div className="relative">
                       <span
-                        className={`sm:w-full relative ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}                     
+                        className={`sm:w-full relative ${activeLink === 'Services' ? (isDarkMode ? 'text-green-500' : 'text-blue-500') : ''}`}
                       >
                         Services
                         {servicesDropdownOpen ? (
@@ -277,7 +278,7 @@ function Navbar(props) {
                         )}
                       </span>
                       {servicesDropdownOpen && (
-                        <div className={`absolute left-23 w-30 ${isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99'}  shadow-lg rounded`}>
+                        <div className={`absolute left-0 w-30 ${isDarkMode ? 'bg-slate-800' : 'bg-white bg-opacity-99'}  shadow-lg rounded`}>
 
                           <div
                             className={`block px-4 py-2 ${isDarkMode ? 'text-white' : 'text-black'} ${isDarkMode ? 'hover:bg-slate-600' : 'hover:bg-gray-200'}  rounded`}
