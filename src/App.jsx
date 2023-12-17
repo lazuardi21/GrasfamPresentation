@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'; // Import Provider
 import store from './store/Store'; // Import your Redux store
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import CompanyProfile from './components/MainContent/CompanyProfile/CompanyProfile';
 import Services from './components/MainContent/Services'; // Create a Services component
 import Contact from './components/MainContent/Contact'; // Create a Contact component
@@ -14,12 +15,11 @@ import Projects from './components/MainContent/Projects'; // Replace with the ac
 import Clients from './components/MainContent/Clients'; // Replace with the actual path to your Clients component
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <Provider store={store}> {/* Wrap your app with Provider */}
-      <Router>
-        <div className="App">
+      <div className="App">
+        <Router>
           <Navbar />
           <Routes>
             <Route path="/" element={<CompanyProfile />} />
@@ -28,8 +28,9 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/clients" element={<Clients />} />
           </Routes>
-        </div>
-      </Router>
+        </Router>
+      </div>
+      <Footer />
     </Provider>
   )
 }

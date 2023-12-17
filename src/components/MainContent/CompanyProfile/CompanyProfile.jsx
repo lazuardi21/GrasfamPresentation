@@ -16,7 +16,7 @@ function CompanyProfile(props) {
   const profileClasses = isDarkMode ? darkModeClasses : lightModeClasses;
 
   return (
-    <div className={`pt-10 ${profileClasses}`}>
+    <div className={`${profileClasses}`}>
       {/* Company Profile Content */}
       <h1>About Grasfam</h1>
       <div className="text-justify px-8">

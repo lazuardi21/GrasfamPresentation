@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700');
+
+* {
+  font-family: 'Open Sans';
+}
+
+.section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  height: 50vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed {
+  @apply bg-gray-800 shadow-lg rounded-lg box-border w-full text-left font-bold text-white p-14;
+  width: 100%; /* Set width to 100% */
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  @apply inline-block;
+  vertical-align: top;
+}
+
+.footer-distributed .footer-left {
+  @apply w-2/5;
+}
+
+.footer-distributed h3 {
+  @apply text-white font-normal text-3xl m-0;
+}
+
+.footer-distributed h3 span {
+  @apply text-teal-500; /* Use a Tailwind color class or specify a color directly */
+}
+
+.footer-distributed .footer-links {
+  @apply text-white my-8 p-0 leading-8; /* Use leading-8 for line-height: 1.8 */
+}
+
+.footer-distributed .footer-links a {
+  @apply inline-block leading-8 font-normal no-underline text-white;
+}
+
+.footer-distributed .footer-company-name {
+  @apply text-gray-600 text-sm font-normal m-0;
+}
+
+.footer-distributed .footer-center {
+  @apply w-2/5;
+}
+
+.footer-distributed .footer-center i {
+  @apply bg-gray-700 text-white text-4xl w-14 h-14 rounded-full text-center leading-none;
+  margin: 10px 15px;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+  @apply text-2xl leading-none;
+}
+
+.footer-distributed .footer-center p {
+  @apply inline-block text-white font-normal align-middle;
+}
+
+.footer-distributed .footer-center p span {
+  @apply block font-normal text-sm leading-8;
+}
+
+.footer-distributed .footer-center p a {
+  @apply text-teal-500 no-underline;
+}
+
+.footer-distributed .footer-links a:before {
+  @apply content-['|'] pr-2;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  @apply content-['']; /* Use an empty string to remove the content for link-1 */
+  margin-right: 5px; /* Adjust margin if needed */
+}
+
+.footer-distributed .footer-right {
+  @apply w-1/5;
+}
+
+.footer-distributed .footer-company-about {
+  @apply leading-8 text-gray-500 text-xs font-normal m-0;
+}
+
+.footer-distributed .footer-company-about span {
+  @apply block text-white font-bold text-sm mb-4;
+}
+
+.footer-distributed .footer-icons {
+  @apply mt-5;
+}
+
+.footer-distributed .footer-icons a {
+  @apply inline-flex items-center justify-center w-9 h-9 cursor-pointer bg-gray-700 rounded-lg hover:bg-gray-600 text-white text-center leading-9;
+  font-size: 20px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+
+.footer-distributed .footer-icons a svg {
+  @apply w-6 h-6; /* Adjust the width and height as needed */
+  
+}
