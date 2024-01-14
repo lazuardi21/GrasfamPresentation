@@ -18,6 +18,15 @@
 .footer-distributed {
   @apply bg-gray-800 shadow-lg rounded-lg box-border w-full text-left font-bold text-white p-14;
   width: 100%; /* Set width to 100% */
+  /* position: fixed; 
+  bottom: 0; */
+}
+
+.footer-distributed.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer-distributed .footer-left,
@@ -108,8 +117,6 @@
   margin-bottom: 5px;
 }
 
-
 .footer-distributed .footer-icons a svg {
   @apply w-6 h-6; /* Adjust the width and height as needed */
-  
 }

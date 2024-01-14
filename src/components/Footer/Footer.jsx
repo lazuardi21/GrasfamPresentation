@@ -1,16 +1,34 @@
-// Footer.js
-import React from 'react';
+
 import './Footer.css';
+import React, { useEffect, useState } from 'react';
 // import  LogoSvg from './assets/Images/GrasfamLogo.svg';
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
+    const [isContentShort, setIsContentShort] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const contentHeight = document.documentElement.scrollHeight;
+            const viewportHeight = window.innerHeight;
+            console.log(viewportHeight);
+            setIsContentShort(contentHeight < viewportHeight);
+        };
+
+        handleResize(); // Initial check
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
-        <div style={{paddingTop : '2%'}}>
-            <footer className="footer-distributed">
+        <div style={{ paddingTop: '2%' }}>
+           <footer className={`footer-distributed ${isContentShort ? 'fixed-footer' : ''}`}>
                 <div className="footer-left">
                     <div>
-                        <img src={'/Images/GrasfamLogo-cropped.svg#svgView(viewBox(160, 150, 80, 100))'} alt='Company Logo'  style={{height:80, width:180}}  />
+                        <img src={'/Images/GrasfamLogo-cropped.svg#svgView(viewBox(160, 150, 80, 100))'} alt='Company Logo' style={{ height: 80, width: 180 }} />
                     </div>
                     <p className="footer-links">
                         <a href="#" className="link-1">
