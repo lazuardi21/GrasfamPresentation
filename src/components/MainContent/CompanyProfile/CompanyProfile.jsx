@@ -1,8 +1,6 @@
 // src/components/CompanyProfile.jsx
 import React from 'react';
 import { connect } from 'react-redux'; // Import connect
-import { darkModeClasses, lightModeClasses } from '../ContentStyles.js'; // Import the classes
-
 
 // Map state from Redux store to component props
 const mapStateToProps = (state) => ({
@@ -13,13 +11,13 @@ function CompanyProfile(props) {
   const { isDarkMode } = props;
 
   // Apply the appropriate classes based on the current mode
-  const profileClasses = isDarkMode ? darkModeClasses : lightModeClasses;
+  const profileClasses = isDarkMode ? 'bg-black text-white' : 'bg-white text-black';
 
   return (
     <div className={`${profileClasses}`}>
       {/* Company Profile Content */}
       <h1>About Grasfam</h1>
-      <div className="text-justify px-8">
+      <div className="text-justify">
 
         <p>
           <span className="ml-4">Grasfam </span>

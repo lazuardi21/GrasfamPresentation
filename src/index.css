@@ -31,8 +31,33 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* padding-top: 5%; */
+  /* min-width: 320px; */
+  /* min-height: 100vh; */
+}
+
+@media (max-width: 1920px) {
+  body {
+    padding-top: 3%;
+  }
+}
+
+@media (max-width: 1080px) {
+  body {
+    padding-top: 5%;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding-top: 10%;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1080px) {
+  body {
+    padding-top: 20%;
+  }
 }
 
 h1 {
@@ -71,3 +96,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+

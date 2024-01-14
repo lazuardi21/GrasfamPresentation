@@ -6,7 +6,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        // <div>
+        <div style={{paddingTop : '2%'}}>
             <footer className="footer-distributed">
                 <div className="footer-left">
                     <div>
@@ -67,7 +67,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-        // </div>
+        </div>
     );
 };
 
