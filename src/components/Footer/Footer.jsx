@@ -1,74 +1,177 @@
-// Footer.js
-import React from 'react';
-import './Footer.css';
-// import  LogoSvg from './assets/Images/GrasfamLogo.svg';
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import React from "react";
+import styled from "styled-components";
+
+export const Box = styled.div`
+     padding: 5% 2.5%;
+     background: black;
+     // position: absolute;
+     bottom: 0;
+     width: 100%;
+  
+     @media (max-width: 1000px) {
+         // padding: 70px 30px;
+     }
+ `;
+  
+ export const FooterContainer = styled.div`
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     max-width: 1000px;
+     margin: 0 auto;
+     /* background: red; */
+ `;
+  
+ export const Column = styled.div`
+     display: flex;
+     flex-direction: column;
+     text-align: left;
+     margin-left: 60px;
+ `;
+  
+ export const Row = styled.div`
+     display: grid;
+     grid-template-columns: repeat(
+         auto-fill,
+         minmax(185px, 1fr)
+     );
+     grid-gap: 20px;
+  
+     @media (max-width: 1000px) {
+         grid-template-columns: repeat(
+             auto-fill,
+             minmax(200px, 1fr)
+         );
+     }
+ `;
+  
+ export const FooterLink = styled.a`
+     color: #fff;
+     margin-bottom: 20px;
+     font-size: 18px;
+     text-decoration: none;
+  
+     &:hover {
+         color: green;
+         transition: 200ms ease-in;
+     }
+ `;
+  
+ export const Heading = styled.p`
+     font-size: 24px;
+     color: #fff;
+     margin-bottom: 40px;
+     font-weight: bold;
+ `;
+
+ 
 
 const Footer = () => {
     return (
-        // <div>
-            <footer className="footer-distributed">
-                <div className="footer-left">
-                    <div>
-                        <img src={'/Images/GrasfamLogo-cropped.svg#svgView(viewBox(160, 150, 80, 100))'} alt='Company Logo'  style={{height:80, width:180}}  />
-                    </div>
-                    <p className="footer-links">
-                        <a href="#" className="link-1">
-                            Home
-                        </a>
-
-                        <a href="#">Blog</a>
-
-                        <a href="#">Pricing</a>
-
-                        <a href="#">About</a>
-
-                        <a href="#">Faq</a>
-
-                        <a href="#">Contact</a>
-                    </p>
-
-                    <p className="footer-company-name">Company Name © 2015</p>
-                </div>
-
-                <div className="footer-center">
-                    <div>
-                        <i className="fa fa-map-marker"></i>
-                        <p>
-                            <span>444 S. Cedros Ave</span> Solana Beach, California
-                        </p>
-                    </div>
-
-                    <div>
-                        <i className="fa fa-phone"></i>
-                        <p>+1.555.555.5555</p>
-                    </div>
-
-                    <div>
-                        <i className="fa fa-envelope"></i>
-                        <p>
-                            <a href="mailto:support@company.com">support@company.com</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div className="footer-right">
-                    <p className="footer-company-about">
-                        <span>About the company</span>
-                        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-                        euismod convallis velit, eu auctor lacus vehicula sit amet.
-                    </p>
-
-                    <div className="footer-icons">
-                        <a href="#"><FaFacebook /></a>
-                        <a href="#"><FaTwitter /></a>
-                        <a href="#"><FaLinkedin /></a>
-                        <a href="#"><FaGithub /></a>
-                    </div>
-                </div>
-            </footer>
-        // </div>
+        <Box>
+            <h1
+                style={{
+                    color: "green",
+                    textAlign: "center",
+                    marginTop: "10px",
+                }}
+            >
+                A Computer Science Portal for Geeks!
+            </h1>
+            <FooterContainer>
+                <Row>
+                    <Column>
+                        <Heading>About Us</Heading>
+                        <FooterLink href="#">
+                            Aim
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Vision
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Testimonials
+                        </FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Services</Heading>
+                        <FooterLink href="#">
+                            Writing
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Internships
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Coding
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Teaching
+                        </FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Contact Us</Heading>
+                        <FooterLink href="#">
+                            Uttar Pradesh
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Ahemdabad
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Indore
+                        </FooterLink>
+                        <FooterLink href="#">
+                            Mumbai
+                        </FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Social Media</Heading>
+                        <FooterLink href="#">
+                            <i className="fab fa-facebook-f">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Facebook
+                                </span>
+                            </i>
+                        </FooterLink>
+                        <FooterLink href="#">
+                            <i className="fab fa-instagram">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Instagram
+                                </span>
+                            </i>
+                        </FooterLink>
+                        <FooterLink href="#">
+                            <i className="fab fa-twitter">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Twitter
+                                </span>
+                            </i>
+                        </FooterLink>
+                        <FooterLink href="#">
+                            <i className="fab fa-youtube">
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                    }}
+                                >
+                                    Youtube
+                                </span>
+                            </i>
+                        </FooterLink>
+                    </Column>
+                </Row>
+            </FooterContainer>
+        </Box>
     );
 };
-
 export default Footer;
