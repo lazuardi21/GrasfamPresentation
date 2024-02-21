@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700');
 
 * {
   font-family: 'Open Sans';
@@ -17,9 +17,7 @@
 
 .footer-distributed {
   @apply bg-gray-800 shadow-lg rounded-lg box-border w-full text-left font-bold text-white p-14;
-  width: 100%; /* Set width to 100% */
-  /* position: fixed; 
-  bottom: 0; */
+  width: 100%; 
 }
 
 .footer-distributed.fixed-footer {
@@ -45,11 +43,11 @@
 }
 
 .footer-distributed h3 span {
-  @apply text-teal-500; /* Use a Tailwind color class or specify a color directly */
+  @apply text-teal-500; 
 }
 
 .footer-distributed .footer-links {
-  @apply text-white my-8 p-0 leading-8; /* Use leading-8 for line-height: 1.8 */
+  @apply text-white my-8 p-0 leading-8;
 }
 
 .footer-distributed .footer-links a {
@@ -90,8 +88,8 @@
 }
 
 .footer-distributed .footer-links .link-1:before {
-  @apply content-['']; /* Use an empty string to remove the content for link-1 */
-  margin-right: 5px; /* Adjust margin if needed */
+  @apply content-['']; 
+  margin-right: 5px; 
 }
 
 .footer-distributed .footer-right {
@@ -118,5 +116,5 @@
 }
 
 .footer-distributed .footer-icons a svg {
-  @apply w-6 h-6; /* Adjust the width and height as needed */
-}
+  @apply w-6 h-6;
+} */

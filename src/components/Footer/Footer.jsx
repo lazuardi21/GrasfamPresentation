@@ -1,190 +1,102 @@
-import styled from "styled-components";
-import React, { useEffect, useState } from 'react';
-
-export const Box = styled.div`
-     padding: 5% 2.5%;
-     background: black;
-     // position: absolute;
-     bottom: 0;
-     width: 100%;
-            const viewportHeight = window.innerHeight;
-            console.log(viewportHeight);
-            setIsContentShort(contentHeight < viewportHeight);
-        };
-
-        handleResize(); // Initial check
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
+import {
+    FaInstagram,
+    FaDribbble,
+    FaXTwitter,
+    FaYoutube,
+  } from "react-icons/fa6";
   
-     @media (max-width: 1000px) {
-         // padding: 70px 30px;
-     }
- `;
+  const Footer = () => {
+    const socialLinks = [
+      { label: "YouTube", icon: FaYoutube },
+      { label: "Instagram", icon: FaInstagram },
+      { label: "Twitter", icon: FaXTwitter },
+      { label: "Dribbble", icon: FaDribbble },
+    ];
   
- export const FooterContainer = styled.div`
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     max-width: 1000px;
-     margin: 0 auto;
-     /* background: red; */
- `;
+    const links = [
+      [
+        { label: "Company", key: "header-1" },
+        { label: "About us", key: "item-1-1" },
+        { label: "Blog", key: "item-1-2" },
+        { label: "Contact us", key: "item-1-3" },
+        { label: "Pricing", key: "item-1-4" },
+        { label: "Testimonials", key: "item-1-5" },
+      ],
+      [
+        { label: "Support", key: "header-2" },
+        { label: "Help center", key: "item-2-1" },
+        { label: "Terms of service", key: "item-2-2" },
+        { label: "Legal", key: "item-2-3" },
+        { label: "Privacy policy", key: "item-2-4" },
+        { label: "Status", key: "item-2-5" },
+      ],
+    ];
   
- export const Column = styled.div`
-     display: flex;
-     flex-direction: column;
-     text-align: left;
-     margin-left: 60px;
- `;
-  
- export const Row = styled.div`
-     display: grid;
-     grid-template-columns: repeat(
-         auto-fill,
-         minmax(185px, 1fr)
-     );
-     grid-gap: 20px;
-  
-     @media (max-width: 1000px) {
-         grid-template-columns: repeat(
-             auto-fill,
-             minmax(200px, 1fr)
-         );
-     }
- `;
-  
- export const FooterLink = styled.a`
-     color: #fff;
-     margin-bottom: 20px;
-     font-size: 18px;
-     text-decoration: none;
-  
-     &:hover {
-         color: green;
-         transition: 200ms ease-in;
-     }
- `;
-  
- export const Heading = styled.p`
-     font-size: 24px;
-     color: #fff;
-     margin-bottom: 40px;
-     font-weight: bold;
- `;
-
- 
-
-const Footer = () => {
     return (
-        <Box>
-            <h1
-                style={{
-                    color: "green",
-                    textAlign: "center",
-                    marginTop: "10px",
-                }}
-            >
-                A Computer Science Portal for Geeks!
-            </h1>
-            <FooterContainer>
-                <Row>
-                    <Column>
-                        <Heading>About Us</Heading>
-                        <FooterLink href="#">
-                            Aim
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Vision
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Testimonials
-                        </FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Services</Heading>
-                        <FooterLink href="#">
-                            Writing
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Internships
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Coding
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Teaching
-                        </FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Contact Us</Heading>
-                        <FooterLink href="#">
-                            Uttar Pradesh
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Ahemdabad
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Indore
-                        </FooterLink>
-                        <FooterLink href="#">
-                            Mumbai
-                        </FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Social Media</Heading>
-                        <FooterLink href="#">
-                            <i className="fab fa-facebook-f">
-                                <span
-                                    style={{
-                                        marginLeft: "10px",
-                                    }}
-                                >
-                                    Facebook
-                                </span>
-                            </i>
-                        </FooterLink>
-                        <FooterLink href="#">
-                            <i className="fab fa-instagram">
-                                <span
-                                    style={{
-                                        marginLeft: "10px",
-                                    }}
-                                >
-                                    Instagram
-                                </span>
-                            </i>
-                        </FooterLink>
-                        <FooterLink href="#">
-                            <i className="fab fa-twitter">
-                                <span
-                                    style={{
-                                        marginLeft: "10px",
-                                    }}
-                                >
-                                    Twitter
-                                </span>
-                            </i>
-                        </FooterLink>
-                        <FooterLink href="#">
-                            <i className="fab fa-youtube">
-                                <span
-                                    style={{
-                                        marginLeft: "10px",
-                                    }}
-                                >
-                                    Youtube
-                                </span>
-                            </i>
-                        </FooterLink>
-                    </Column>
-                </Row>
-            </FooterContainer>
-        </Box>
+      <div className="app flex items-end justify-center font-poppins">
+        <div className="py-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 bg-green-800 text-white w-full p-4">
+          <div className="  ">
+            <div className="footer-img flex items-center">
+              <img
+                src={"https://i.imgur.com/520zDfd.png"}
+                alt=""
+                className="w-16 h-auto"
+              />
+              <span className="text-3xl font-bold pl-2 text-white">
+                Company name
+              </span>
+            </div>
+            <div className="infos text-gray-400">
+              <span>Copyright © 2020 Nexcent ltd.</span>
+              <span>All rights reserved</span>
+            </div>
+            <div className="footer-icons flex items-center space-x-3">
+              {socialLinks.map((socialLink, index) => {
+                const Icon = socialLink.icon;
+                return (
+                  <Icon
+                    key={`social-${index}`}
+                    className="w-14 h-14 p-2 rounded-full bg-green-700 hover:bg-white hover:text-green-700 cursor-pointer"
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <div className="mx-2 grid w-full py-5 sm:py-0 grid-cols-2 ">
+            {links.map((col, index) => {
+              return (
+                <ul className={`col col-${index + 1}`} key={`col-${index}`}>
+                  {col.map((link, index) => {
+                    return (
+                      <li
+                        key={`link-${col}-${index}`}
+                        className={`text-gray-400 cursor-pointer ${
+                          link.key === "header-1" || link.key === "header-2"
+                            ? "text-2xl text-white"
+                            : ""
+                        }`}
+                      >
+                        {link.label}
+                      </li>
+                    );
+                  })}
+                </ul>
+              );
+            })}
+          </div>
+          <div className="footer-form flex flex-col  ">
+            <label className="text-lg font-semibold text-white">
+              Stay up to date
+            </label>
+            <input
+              type="email"
+              placeholder="Subscribe to our email"
+              className="mt-2 w-full border-none rounded-lg py-3 px-6"
+            />
+          </div>
+        </div>
+      </div>
     );
-};
-export default Footer;
+  };
+  
+  export default Footer;

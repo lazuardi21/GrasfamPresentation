@@ -28,9 +28,9 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/clients" element={<Clients />} />
           </Routes>
+          <Footer />
         </Router>
       </div>
-      <Footer />
     </Provider>
   )
 }
