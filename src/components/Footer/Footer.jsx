@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
 
 export const Box = styled.div`
      padding: 5% 2.5%;
@@ -7,6 +8,19 @@ export const Box = styled.div`
      // position: absolute;
      bottom: 0;
      width: 100%;
+            const viewportHeight = window.innerHeight;
+            console.log(viewportHeight);
+            setIsContentShort(contentHeight < viewportHeight);
+        };
+
+        handleResize(); // Initial check
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
   
      @media (max-width: 1000px) {
          // padding: 70px 30px;

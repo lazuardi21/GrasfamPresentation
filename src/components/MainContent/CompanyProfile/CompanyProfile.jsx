@@ -1,8 +1,7 @@
 // src/components/CompanyProfile.jsx
 import React from 'react';
 import { connect } from 'react-redux'; // Import connect
-import { darkModeClasses, lightModeClasses } from '../ContentStyles.js'; // Import the classes
-
+import CompanyCard from './CompanyCard';
 
 // Map state from Redux store to component props
 const mapStateToProps = (state) => ({
@@ -13,18 +12,22 @@ function CompanyProfile(props) {
   const { isDarkMode } = props;
 
   // Apply the appropriate classes based on the current mode
-  const profileClasses = isDarkMode ? darkModeClasses : lightModeClasses;
+  const profileClasses = isDarkMode ? 'bg-black text-white' : 'bg-white text-black';
 
   return (
     <div className={`${profileClasses}`}>
-      {/* Company Profile Content */}
-      <h1>About Grasfam</h1>
-      <div className="text-justify px-8">
+      <div className="w-90 bg-white border ml-5 mr-5 border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+        {/* <CompanyCard>
 
-        <p>
-          <span className="ml-4">Grasfam </span>
-          is a leading technology solutions provider, specializing in a wide range of IT services and products.
-          Mission: Empowering businesses with innovative technology solutions to thrive in the digital age.
+        </CompanyCard> */}
+        {/* Company Profile Content */}
+        <h1>About Grasfam</h1>
+        <div className="text-justify">
+
+          <p>
+            <span className="ml-4">Grasfam </span>
+            is a leading technology solutions provider, specializing in a wide range of IT services and products.
+            {/* Mission: Empowering businesses with innovative technology solutions to thrive in the digital age.
           Grasfam is a leading technology solutions provider, specializing in a wide range of IT services and products. We are committed to helping businesses of all sizes leverage cutting-edge technology to enhance their operations, increase efficiency, and achieve their business goals.
           Our Services
           Custom Software Development: We create tailor-made software solutions that address your specific business needs. Our team of experienced developers uses the latest technologies to build robust and scalable software applications.
@@ -92,11 +95,13 @@ function CompanyProfile(props) {
 
           Email: info@grasfam.com
 
-          Website: www.grasfam.com
-        </p>
+          Website: www.grasfam.com */}
+          </p>
+
+        </div>
+        {/* Add more content here */}
 
       </div>
-      {/* Add more content here */}
 
     </div>
   );

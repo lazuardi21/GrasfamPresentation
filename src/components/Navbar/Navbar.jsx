@@ -156,14 +156,14 @@ function Navbar(props) {
                   style={{ top: '2.5rem' }} >
                   <div
                     className={`text-2xl ${linkTextStyles} p-2 rounded ${isDarkMode ? null : 'bg-brown-200'}`}
-                    onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); setSidebarVisible(false); toggleBlurBackground() }}
+                    onClick={() => { handleLinkClick('/'); setActiveLink('Home'); setSidebarVisible(false); toggleBlurBackground() }}
                   >
-                    {activeLink === 'Grasfam' ? (
+                    {activeLink === 'Home' ? (
                       <span className={isDarkMode ? 'text-green-500' : 'text-blue-500'}>
-                        Grasfam
+                        Home
                       </span>
                     ) : (
-                      'Grasfam'
+                      'Home'
                     )}
                   </div>
                   <div>
@@ -246,12 +246,12 @@ function Navbar(props) {
                 <div className="grid grid-cols-[8%_10%_7%_7%_7%] items-center left-4 pl-24">
                   <div
                     className={`cursor-pointer sm:w-full p-2 ${linkTextStyles}`}
-                    onClick={() => { handleLinkClick('/'); setActiveLink('Grasfam'); }}
+                    onClick={() => { handleLinkClick('/'); setActiveLink('Home'); }}
                   >
-                    {activeLink === 'Grasfam' ? (
-                      <span className={`${isDarkMode ? 'text-green-500' : 'text-blue-500'}`}>Grasfam</span>
+                    {activeLink === 'Home' ? (
+                      <span className={`${isDarkMode ? 'text-green-500' : 'text-blue-500'}`}>Home</span>
                     ) : (
-                      'Grasfam'
+                      'Home'
                     )}
                   </div>
                   <div
