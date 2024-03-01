@@ -1,7 +1,8 @@
 // src/components/CompanyProfile.jsx
 import React from 'react';
 import { connect } from 'react-redux'; // Import connect
-import { companyName } from '../../Utils/constant';
+import { companyName } from '../../Utils/Constant';
+import { bodyContent } from './Content';
 // import CompanyCard from './CompanyCard';
 
 // Map state from Redux store to component props
@@ -21,13 +22,10 @@ function CompanyProfile(props) {
         <div>
           <h1>About {companyName}</h1>
           <div className="text-justify">
-
             <p>
-              <span className="ml-4">Grasfam </span>
-              is a leading technology solutions provider, specializing in a wide range of IT services and products.
-
+              {/* <span className="ml-4">Grasfam </span> */}
+              {bodyContent}
             </p>
-
           </div>
         </div>
         
