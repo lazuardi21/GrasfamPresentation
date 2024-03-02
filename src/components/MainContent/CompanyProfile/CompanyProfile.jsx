@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'; // Import connect
 import { companyName } from '../../Utils/Constant';
 import { bodyContent } from './Content';
+import JobList from "./JobList";
 // import CompanyCard from './CompanyCard';
 
 // Map state from Redux store to component props
@@ -18,7 +19,7 @@ function CompanyProfile(props) {
 
   return (
     <div className={`${profileClasses}`}>
-      <div className="w-90 ml-5 mr-5 mt-5 mb-2 sm:p-6  p-2">
+      <div className="w-90 ml-5 mr-5 mb-2 sm:p-6  p-2">
         <div>
           <h1>About {companyName}</h1>
           <div className="text-justify">
@@ -27,11 +28,10 @@ function CompanyProfile(props) {
               {bodyContent}
             </p>
           </div>
+          <h1>Our Products</h1>
+          <JobList />
         </div>
-        
-
       </div>
-
     </div>
   );
 }

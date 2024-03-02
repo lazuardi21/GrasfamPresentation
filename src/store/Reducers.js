@@ -2,7 +2,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 
 const initialState = {
-  isDarkMode: false,
+  isDarkMode: true,
 };
 
 const appReducer = createReducer(initialState, {

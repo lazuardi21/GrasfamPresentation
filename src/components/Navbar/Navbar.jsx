@@ -74,7 +74,7 @@ function Navbar(props) {
   // Conditionally apply a CSS className to the grid icon for color change in light mode
   const gridIconColor = isDarkMode ? 'text-white' : 'text-black';
 
-  const navbarClasses = `fixed w-full top-0 left-0 ${navbarBackgroundColor} ${navbarTextColor} flex justify-between items-center ${navbarLayoutClasses}`;
+  const navbarClasses = `fixed w-full top-0 left-0 ${navbarBackgroundColor} ${navbarTextColor} flex justify-between items-center ${navbarLayoutClasses} z-10`;
   const buttonClasses = `ml-2 px-3 py-1 rounded ${isDarkMode ? 'bg-green-500' : 'bg-yellow-400'
     } hover:bg-${isDarkMode ? 'green-600' : 'yellow-500'}`;
 
