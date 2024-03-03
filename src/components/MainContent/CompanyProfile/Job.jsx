@@ -14,7 +14,7 @@ export default function Job() {
       jobDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed augue lacus viverra. Feugiat in ante metus dictum at tempor commodo. Consectetur lorem donec massa sapien faucibus.",
       jobImg:
-        "https://www.kasandbox.org/programming-images/avatars/duskpin-sapling.png"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvhjxagOlIynO6C2WUPD8Kho3pnyxmwmUtPObacRZ9Q&s"
     },
     {
       jobName: "Selkirk Auctioneers & Appraisers",
@@ -24,7 +24,7 @@ export default function Job() {
       jobDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed augue lacus viverra. Feugiat in ante metus dictum at tempor commodo. Consectetur lorem donec massa sapien faucibus.",
       jobImg:
-        "https://www.kasandbox.org/programming-images/avatars/duskpin-seed.png"
+        "https://media.istockphoto.com/id/1410950079/photo/modern-style-classroom-in-the-morning-3d-render.webp?b=1&s=170667a&w=0&k=20&c=D3KekIGN_W76ScIe_vKZURixg0hXdXnbPfhKywcItro="
     },
     {
       jobName: "University of York",
