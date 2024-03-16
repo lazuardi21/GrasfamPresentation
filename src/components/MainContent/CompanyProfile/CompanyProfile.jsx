@@ -1,8 +1,6 @@
 // src/components/CompanyProfile.jsx
 import React from 'react';
 import { connect } from 'react-redux'; // Import connect
-import { companyName } from '../../Utils/Constant';
-import { bodyContent } from './Content';
 import JobList from "./JobList";
 // import CompanyCard from './CompanyCard';
 
@@ -19,7 +17,7 @@ function CompanyProfile(props) {
 
   let companyProfileContent = [
     {
-      titleAbout: "About Nihongo",
+      titleAbout: "About グラスファム",
       contentAbout: "は、幅広い IT サービスと製品を専門とする、大手テクノロジー ソリューション プロバイダーです。",
       contentImgAbout:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvvhjxagOlIynO6C2WUPD8Kho3pnyxmwmUtPObacRZ9Q&s",
@@ -38,28 +36,32 @@ function CompanyProfile(props) {
         <div>
           {companyProfileContent.map((company, i) => {
             return (
-              <>
+              <React.Fragment key={i}>
                 <div>
-                  <h1>{company.titleAbout}</h1>
+                  <div className='pb-10'>
+                    <h1>{company.titleAbout}</h1>
+                  </div>
                   <div className="text-justify pb-10">
                     <p>
                       {company.contentAbout}
                     </p>
                   </div>
                 </div>
-                <div>
-                <h1>{company.missionTitle}</h1>
+                <div key={`mission-${i}`}>
+                  <div className='pb-10'>
+                    <h1>{company.missionTitle}</h1>
+                  </div>
                   <div className="text-justify pb-10">
                     <p>
                       {company.missionContent}
                     </p>
                   </div>
                 </div>
-                <div>
+                <div key={`product-${i}`}>
                   <h1>{company.productTitle}</h1>
                   <JobList />
                 </div>
-              </>
+              </React.Fragment>
             );
           })}
         </div>

@@ -17,9 +17,9 @@ export default function JobLeft({ name, emoji, title, location, desc, img }) {
         <div className="row-span-3 col-span-1">
           <img
             className="jobImg"
-            alt="chess hall of fame"
+            alt="Left Product"
             src={img}
-            style={{ width: "25vw" }}
+            style={{ width: "75%", height: "75%" }}
           />
         </div>
       </div>
